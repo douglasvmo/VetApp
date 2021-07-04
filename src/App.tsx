@@ -9,18 +9,15 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-} from 'react-native';
 
 import { MainNavigator } from '@/Navigators'
+import { ContextProvider } from '@/Context'
 
 const App = () => {
   return (
-    <SafeAreaView >
-      <MainNavigator />Î
-    </SafeAreaView>
+    <ContextProvider>
+      <MainNavigator />
+    </ContextProvider>
   );
 };
 
