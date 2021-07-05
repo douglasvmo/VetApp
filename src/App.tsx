@@ -10,16 +10,15 @@
 
 import React from 'react';
 
-import { MainNavigator } from '@/Navigators'
-import { ContextProvider } from '@/Context'
+import {Navigator} from '@/Navigators';
+import {ContextProvider} from '@/Context';
 
 const App = () => {
   return (
     <ContextProvider>
-      <MainNavigator />
+      <Navigator />
     </ContextProvider>
   );
 };
-
 
 export default App;

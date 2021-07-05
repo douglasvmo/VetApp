@@ -23,6 +23,8 @@ export type Props = {
 
 function reducer(state: State, action: Action): State {
     switch (action.type) {
+        case "theme": 
+            return {...state, theme: action.payload}
         default:
             return state;
     }
