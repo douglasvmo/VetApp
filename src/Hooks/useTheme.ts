@@ -1,3 +1,4 @@
+import React from 'react';
 import {useContextSelector} from 'use-context-selector';
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
 import {Context} from '@/Context';
@@ -15,5 +16,20 @@ export default function () {
     Fonts: Fonts(defaultVariables),
   };
 
-  return {isDarkMode, isLightMode, NavigationTheme, ...baseTheme, dispath};
+  const setDarkTheme = React.useCallback(() => {
+    dispath({type: 'theme', payload: 'dark'});
+  }, [dispath]);
+
+  const setLightTheme = React.useCallback(() => {
+    dispath({type: 'theme', payload: 'light'});
+  }, [dispath]);
+
+  return {
+    isDarkMode,
+    isLightMode,
+    NavigationTheme,
+    ...baseTheme,
+    setDarkTheme,
+    setLightTheme,
+  };
 }

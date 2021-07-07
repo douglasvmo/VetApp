@@ -16,7 +16,7 @@ export default function ({FontSize, Colors}: Variables) {
       color: Colors.text,
     },
     titleSmall: {
-      fontSize: FontSize.small * 2,
+      fontSize: FontSize.small * 1.8,
       fontWeight: 'bold',
       color: Colors.text,
     },
