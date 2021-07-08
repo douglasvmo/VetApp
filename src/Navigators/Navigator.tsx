@@ -3,10 +3,10 @@ import {StatusBar, SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import UnauthNavigation from './UnauthNavigation';
 import AuthNavigation from './AuthNavigation';
-import {useTheme} from '@/Hooks';
+import {useTheme, useAuth} from '@/Hooks';
 
 export default function () {
-  const haveAuth = true;
+  const {haveAuth} = useAuth();
   const {isDarkMode, NavigationTheme} = useTheme();
 
   return (
