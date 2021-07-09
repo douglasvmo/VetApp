@@ -73,6 +73,9 @@ export default function () {
       flexGrow: 1,
       justifyContent: 'space-between',
     },
+    justifyContentEnd: {
+      justifyContent: 'flex-end',
+    },
     selfStretch: {
       alignSelf: 'stretch',
     },
