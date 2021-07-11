@@ -23,7 +23,7 @@ export default function () {
 
   return {
     statusBarHeight: Platform.OS === 'ios' ? 20 : 0,
-    navigationHeaderHeight: Platform.OS === 'ios' ? 64 : 54,
+    navigationBerHeight: Platform.OS === 'ios' ? 82 : 50,
     borderRadius: 8,
     navigationHeaderFontSize: Platform.OS === 'ios' ? 17 : 19,
     extraSmallSize: getWidthFromDP('1%'),

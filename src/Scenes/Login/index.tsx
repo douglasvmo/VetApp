@@ -1,59 +1,29 @@
 import React from 'react';
-import {View, Text, ViewProps, KeyboardAvoidingView} from 'react-native';
-import {useTheme} from '@/Hooks';
-import {TextinputAnimated} from '@/Components';
-
-const LoginWrapper: React.FC<ViewProps> = props => {
-  const {Metrics} = useTheme();
-
-  return (
-    <View
-      style={[
-        {
-          height: Metrics.getHeightFromDP('80%'),
-          borderTopLeftRadius: 140,
-          justifyContent: 'center',
-          backgroundColor: '#fff',
-          paddingHorizontal: 10,
-        },
-        props.style,
-      ]}>
-      {props.children}
-    </View>
-  );
-};
-const LogoWrapper: React.FC<ViewProps> = props => {
-  const {Metrics} = useTheme();
-
-  return (
-    <View
-      {...props}
-      style={[{height: Metrics.getHeightFromDP('10')}, props.style]}>
-      {props.children}
-    </View>
-  );
-};
+import {View, Text, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
+import {Button, TextinputAnimated} from '@/Components';
+import {useAuth} from '@/Hooks';
+import {useStyle} from './styles';
 
 export default function () {
-  const {Fonts, Metrics} = useTheme();
+  const style = useStyle();
+  const {setToken} = useAuth();
 
   return (
-    <KeyboardAvoidingView
-      behavior="position"
-      style={[{flex: 1, backgroundColor: 'blue'}]}>
-      <View>
-        <LogoWrapper>
-          <Text style={[Fonts.titleRegular]}>Login</Text>
-        </LogoWrapper>
-        <LoginWrapper>
-          <TextinputAnimated label="Login" border borderColor="gray" />
-          <TextinputAnimated
-            label="Senha"
-            border
-            borderColor="gray"
-            secureTextEntry
-          />
-        </LoginWrapper>
+    <KeyboardAvoidingView behavior="position" style={style.container}>
+      <View style={style.logoWrapper}>
+        <Text>Login</Text>
+      </View>
+      <View style={style.loginWrapper}>
+        <TextinputAnimated label="Login" border borderColor="gray" />
+        <TextinputAnimated
+          label="Senha"
+          border
+          borderColor="gray"
+          secureTextEntry
+        />
+        <TouchableOpacity style={style.button} onPress={() => setToken('ok')}>
+          <Text style={style.buttonText}>Entrar</Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   );
