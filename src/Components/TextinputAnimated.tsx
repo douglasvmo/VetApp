@@ -62,7 +62,7 @@ export const TextinputAnimated: React.FunctionComponent<InputProps> = (
     left: 10,
     top: animation.interpolate({
       inputRange: [0, 1],
-      outputRange: [35, 10],
+      outputRange: [32, 10],
     }),
     fontSize: animation.interpolate({
       inputRange: [0, 1],

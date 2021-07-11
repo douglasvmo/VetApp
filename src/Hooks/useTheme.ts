@@ -2,7 +2,13 @@ import React from 'react';
 import {useContextSelector} from 'use-context-selector';
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
 import {Context} from '@/Context';
-import {Layout, Fonts, defaultVariables} from '@/Style';
+import {Fonts, Metrics, defaultVariables} from '@/Style';
+import {Variables} from '@/Style/Variables';
+
+const createVariables = (theme: Object): Variables => ({
+  ...defaultVariables,
+  ...theme,
+});
 
 export default function () {
   const theme = useContextSelector(Context, s => s.store?.theme);
@@ -10,10 +16,12 @@ export default function () {
 
   const isDarkMode = theme == 'dark';
   const isLightMode = !isDarkMode;
-  const NavigationTheme = isDarkMode ? DarkTheme : DefaultTheme;
+  const navigationTheme = isDarkMode ? DarkTheme : DefaultTheme;
+  const configVar = createVariables(navigationTheme);
+
   const baseTheme = {
-    Layout: Layout(),
-    Fonts: Fonts(defaultVariables),
+    Metrics: Metrics(),
+    Fonts: Fonts(configVar),
   };
 
   const setDarkTheme = React.useCallback(() => {
@@ -27,7 +35,7 @@ export default function () {
   return {
     isDarkMode,
     isLightMode,
-    NavigationTheme,
+    navigationTheme,
     ...baseTheme,
     setDarkTheme,
     setLightTheme,

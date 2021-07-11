@@ -7,11 +7,11 @@ import {useTheme, useAuth} from '@/Hooks';
 
 export default function () {
   const {haveAuth} = useAuth();
-  const {isDarkMode, NavigationTheme} = useTheme();
+  const {isDarkMode, navigationTheme} = useTheme();
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <NavigationContainer theme={NavigationTheme}>
+      <NavigationContainer theme={navigationTheme}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         {haveAuth ? <AuthNavigation /> : <UnauthNavigation />}
       </NavigationContainer>

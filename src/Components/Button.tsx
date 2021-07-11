@@ -9,16 +9,16 @@ import {
 import {useTheme} from '@/Hooks';
 
 type Props = {
-  title: string;
+  children: React.ReactNode;
   onPress?: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
 };
 
-export default function ({title, onPress, style}: Props) {
-  const {Layout, Fonts} = useTheme();
+export default function ({children, onPress, style}: Props) {
+  const {Fonts} = useTheme();
   return (
-    <TouchableOpacity style={[Layout.colCenter, style]} onPress={onPress}>
-      <Text style={[Fonts.textSmall]}>{title}</Text>
+    <TouchableOpacity style={[style]} onPress={onPress}>
+      <Text style={[Fonts.textSmall]}>{children}</Text>
     </TouchableOpacity>
   );
 }

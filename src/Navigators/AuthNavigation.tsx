@@ -1,11 +1,15 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabBarOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Home} from '@/Scenes';
 
+const Stack = createStackNavigator();
+
 function StackHome() {
-  const Stack = createStackNavigator();
   return (
     <Stack.Navigator headerMode="none">
       <Stack.Screen name="Home" component={Home} />
@@ -14,7 +18,6 @@ function StackHome() {
 }
 
 function StackSetings() {
-  const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
       <Stack.Screen name="Setings" component={Home} />
@@ -24,9 +27,12 @@ function StackSetings() {
 
 export default function () {
   const BottomTab = createBottomTabNavigator();
+  const tabBarOptions: BottomTabBarOptions = {
+    style: {height: 50},
+  };
 
   return (
-    <BottomTab.Navigator>
+    <BottomTab.Navigator tabBarOptions={tabBarOptions}>
       <BottomTab.Screen
         name="Home"
         component={StackHome}
