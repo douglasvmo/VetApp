@@ -15,10 +15,9 @@ type Props = {
 };
 
 export default function ({children, onPress, style}: Props) {
-  const {Fonts} = useTheme();
   return (
     <TouchableOpacity style={[style]} onPress={onPress}>
-      <Text style={[Fonts.textSmall]}>{children}</Text>
+      <Text>{children}</Text>
     </TouchableOpacity>
   );
 }

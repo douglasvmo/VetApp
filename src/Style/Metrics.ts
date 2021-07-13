@@ -22,7 +22,7 @@ export default function () {
   };
 
   return {
-    statusBarHeight: Platform.OS === 'ios' ? 20 : 0,
+    statusBarHeight: Platform.OS === 'ios' ? 30 : 0,
     navigationBerHeight: Platform.OS === 'ios' ? 82 : 50,
     borderRadius: 8,
     navigationHeaderFontSize: Platform.OS === 'ios' ? 17 : 19,

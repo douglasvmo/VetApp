@@ -12,11 +12,16 @@ import React from 'react';
 
 import {Navigator} from '@/Navigators';
 import {ContextProvider} from '@/Context';
+import {ThemeProvider} from 'styled-components';
+import {useTheme} from './Hooks';
 
 const App = () => {
+  const {Metrics, Colors} = useTheme();
   return (
     <ContextProvider>
-      <Navigator />
+      <ThemeProvider theme={{Metrics, Colors}}>
+        <Navigator />
+      </ThemeProvider>
     </ContextProvider>
   );
 };
