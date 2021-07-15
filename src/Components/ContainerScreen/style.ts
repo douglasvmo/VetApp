@@ -12,7 +12,7 @@ export const HeaderWrapper = styled(View)`
   justify-content: center;
   padding-bottom: 100px;
   margin-bottom: -100px;
-  padding-top: ${({theme})=> theme.Metrics.statusBarHeight};
+  padding-top: ${({theme})=> theme.Metrics.statusBarHeight}px;
   background-color: ${({theme}) => theme.Colors.primary};
   z-index: -2;
 `;

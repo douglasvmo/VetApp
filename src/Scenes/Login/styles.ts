@@ -1,46 +1,45 @@
-import {useTheme} from '@/Hooks';
-import {StyleSheet} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  View,
+  Platform,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
+import styled from 'styled-components';
 
-export const useStyle = () => {
-  const {Metrics, Fonts} = useTheme();
+export const KeyboardAvoidingContainer = styled(KeyboardAvoidingView).attrs({
+  behavior: Platform.OS == 'ios' ? 'position' : undefined,
+})`
+  flex: 1;
+  justify-content: flex-end;
+  background-color: ${({theme}) => theme.Colors.white};
+`;
 
-  return StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'flex-end',
-      backgroundColor: '#fff',
-    },
-    loginWrapper: {
-      height: Metrics.getHeightFromDP('80%'),
-      borderTopLeftRadius: 100,
-      justifyContent: 'center',
-      backgroundColor: '#fff',
-      paddingHorizontal: 10,
-    },
-    logoWrapper: {
-      height: '35%',
-      marginBottom: -100,
-      justifyContent: 'center',
-      backgroundColor: '#0E4DA4',
-      zIndex: -2,
-    },
-    button: {
-      backgroundColor: '#0E4DA4',
-      height: Metrics.getHeightFromDP('5%'),
-      justifyContent: 'center',
-      alignItems: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
+export const LoginWrapper = styled(KeyboardAvoidingView)`
+  height: ${({theme}) => theme.Metrics.getHeightFromDP('80%')}px;
+  border-top-left-radius: 100px;
+  justify-content: center;
+  background-color: ${({theme}) => theme.Colors.white};
+  padding: 0 10px;
+`;
 
-      elevation: 5,
-    },
-    buttonText: {
-      fontSize: Metrics.extraLargeSize,
-    },
-  });
-};
+export const LogoWrapper = styled(View)`
+  height: 35%;
+  margin-bottom: -100px;
+  justify-content: center;
+  background-color: ${({theme}) => theme.Colors.primary};
+  z-index: -2;
+`;
+
+export const Button = styled(TouchableOpacity)`
+  background-color: ${({theme}) => theme.Colors.primary};
+  height: ${({theme}) => theme.Metrics.getHeightFromDP('5%')}px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 3px #b3b3b3b3;
+  elevation: 10;
+`;
+
+export const ButtonText = styled(Text)`
+  font-size: ${({theme})=>theme.Metrics.largeSize}px;
+`;

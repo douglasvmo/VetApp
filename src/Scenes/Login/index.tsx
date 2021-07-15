@@ -1,19 +1,18 @@
 import React from 'react';
-import {View, Text, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
+import {Text} from 'react-native';
 import {Button, TextinputAnimated} from '@/Components';
 import {useAuth} from '@/Hooks';
-import {useStyle} from './styles';
+import * as S from './styles';
 
 export default function () {
-  const style = useStyle();
   const {setToken} = useAuth();
 
   return (
-    <KeyboardAvoidingView behavior="position" style={style.container}>
-      <View style={style.logoWrapper}>
+    <S.KeyboardAvoidingContainer>
+      <S.LogoWrapper>
         <Text>Login</Text>
-      </View>
-      <View style={style.loginWrapper}>
+      </S.LogoWrapper>
+      <S.LoginWrapper>
         <TextinputAnimated label="Login" border borderColor="gray" />
         <TextinputAnimated
           label="Senha"
@@ -21,10 +20,10 @@ export default function () {
           borderColor="gray"
           secureTextEntry
         />
-        <TouchableOpacity style={style.button} onPress={() => setToken('ok')}>
-          <Text style={style.buttonText}>Entrar</Text>
-        </TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
+        <S.Button onPress={() => setToken('ok')}>
+          <S.ButtonText>Entrar</S.ButtonText>
+        </S.Button>
+      </S.LoginWrapper>
+    </S.KeyboardAvoidingContainer>
   );
 }
