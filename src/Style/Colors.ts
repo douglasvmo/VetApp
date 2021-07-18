@@ -4,10 +4,12 @@ export default function ({colors, dark}: Theme) {
   const ligthColors = {
     white: '#ffffff',
     primary: '#0E4DA4',
+    gray: '#F0F0F0',
   };
   const darkColors = {
     white: '#ffffff',
     primary: '#0E4DA4',
+    gray: '#F0F0F0',
   };
 
   return {
