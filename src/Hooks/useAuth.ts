@@ -1,11 +1,9 @@
 import React from 'react';
-import {useContextSelector} from 'use-context-selector';
-import {Context} from '@/Context';
-
+import {useDispath, useSelector} from '@/Hooks';
 
 export default function () {
-  const token = useContextSelector(Context, state => state.store.token);
-  const dispath = useContextSelector(Context, state => state.dispath);
+  const token = useSelector(s => s.store.token);
+  const dispath = useDispath();
   const haveAuth = (token && true) || false;
 
   const setToken = React.useCallback(

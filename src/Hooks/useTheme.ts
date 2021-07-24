@@ -1,12 +1,11 @@
 import React from 'react';
-import {useContextSelector} from 'use-context-selector';
 import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
-import {Context} from '@/Context';
+import {useDispath, useSelector} from '@/Hooks';
 import {Colors, Metrics} from '@/Style';
 
 export default function () {
-  const theme = useContextSelector(Context, s => s.store?.theme);
-  const dispath = useContextSelector(Context, s => s.dispath);
+  const theme = useSelector(s => s.store.theme);
+  const dispath = useDispath();
 
   const isDarkMode = theme == 'dark';
   const isLightMode = !isDarkMode;
