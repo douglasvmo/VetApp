@@ -5,6 +5,9 @@ import {StateContext, InitialStateContext, ActionContext} from 'types';
 const initialState: StateContext = {
   theme: 'light',
   token: null,
+  alert: {
+    show: false,
+  },
 };
 
 export const Context = createContext<InitialStateContext>({
@@ -18,6 +21,8 @@ function reducer(state: StateContext, action: ActionContext): StateContext {
       return {...state, theme: action.payload};
     case 'auth':
       return {...state, token: action.payload};
+    case 'alert':
+      return {...state, alert: action.payload};
     default:
       return state;
   }

@@ -13,6 +13,7 @@ import React from 'react';
 import {Navigator} from '@/Navigators';
 import {ContextProvider} from '@/Context';
 import {ThemeProvider} from 'styled-components';
+import {AlertDisplay} from '@/Components';
 import {useTheme} from './Hooks';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <ContextProvider>
       <ThemeProvider theme={{Metrics, Colors}}>
+        <AlertDisplay />
         <Navigator />
       </ThemeProvider>
     </ContextProvider>
